@@ -11,6 +11,28 @@ function App() {
 
   const currentCard = deck[currentIndex];
 
+  const numberWords = {
+    'one': '1', 'two': '2', 'three': '3', 'four': '4', 'five': '5',
+    'six': '6', 'seven': '7', 'eight': '8', 'nine': '9', 'ten': '10',
+    '1': 'one', '2': 'two', '3': 'three', '4': 'four', '5': 'five',
+    '6': 'six', '7': 'seven', '8': 'eight', '9': 'nine', '10': 'ten'
+  };
+
+  function normalize(str) {
+    return str.toLowerCase().replace(/[^a-z0-9\s]/g, '').trim();
+  }
+
+  function isCorrectGuess(guess, answer) {
+    const g = normalize(guess);
+    const a = normalize(answer);
+
+    if (g === a) return true;
+    if (a.includes(g) && g.length > 2) return true;
+    if (numberWords[g] && (numberWords[g] === a || a.includes(numberWords[g]))) return true;
+
+    return false;
+  }
+
   function handleFlip() {
     setIsFlipped(!isFlipped);
   }
@@ -35,7 +57,7 @@ function App() {
 
   function handleGuessSubmit() {
     if (!guess.trim()) return;
-    const correct = guess.trim().toLowerCase() === currentCard.answer.trim().toLowerCase();
+    const correct = isCorrectGuess(guess, currentCard.answer);
     setGuessResult(correct ? 'correct' : 'incorrect');
   }
 
@@ -56,7 +78,7 @@ function App() {
         <p className="count">Card {currentIndex + 1} of {deck.length}</p>
 
         <div className="card" onClick={handleFlip}>
-          <p>{isFlipped ? currentCard.answer : currentCard.question}</p>
+          <p style={{ color: '#1a1a1a' }}>{isFlipped ? currentCard.answer : currentCard.question}</p>
           <span className="flip-hint">Click to flip</span>
         </div>
 
@@ -69,7 +91,11 @@ function App() {
               setGuess(e.target.value);
               setGuessResult(null);
             }}
-            className={guessResult === 'correct' ? 'input-correct' : guessResult === 'incorrect' ? 'input-incorrect' : ''}
+            style={{
+              borderColor: guessResult === 'correct' ? '#4caf50' : guessResult === 'incorrect' ? '#f44336' : '#ccc',
+              backgroundColor: guessResult === 'correct' ? '#f0fff0' : guessResult === 'incorrect' ? '#fff0f0' : 'white',
+              color: '#1a1a1a'
+            }}
           />
           <button className="submit-btn" onClick={handleGuessSubmit}>Submit</button>
         </div>
