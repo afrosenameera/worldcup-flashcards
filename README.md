@@ -38,10 +38,7 @@ The following **additional** features are implemented:
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
-
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-
-GIF created with [Kap](https://getkap.co/)
+https://www.loom.com/share/93cdec565c7f41e6a60372da0b99554e
 
 ## Notes
 
