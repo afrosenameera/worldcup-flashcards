@@ -1,18 +1,64 @@
-# React + Vite
+# Web Development Project 3 - World Cup Trivia Flashcards Part 2
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Submitted by: **Nameera Afrose**
 
-Currently, two official plugins are available:
+This web app: **A World Cup trivia flashcard app where users can type in their answer before flipping the card, navigate through cards in order, and shuffle the deck for a new challenge.**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Time spent: **3** hours spent in total
 
-## React Compiler
+## Required Features
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+The following **required** functionality is completed:
 
-Note: This will impact Vite dev & build performances.
+- [x] **The user can enter their guess into an input box *before* seeing the flipside of the card**
+  - Application features a clearly labeled input box with a submit button where users can type in a guess
+  - Clicking on the submit button with an **incorrect** answer shows visual feedback that it is wrong
+  - Clicking on the submit button with a **correct** answer shows visual feedback that it is correct
+- [x] **The user can navigate through an ordered list of cards**
+  - A forward/next button displayed on the card navigates to the next card in a set sequence when clicked
+  - A previous/back button displayed on the card returns to the previous card in the set sequence when clicked
+  - Both the next and back buttons should have some visual indication that the user is at the beginning or end of the list (for example, graying out and no longer being available to click), not allowing for wrap-around navigation
 
-## Expanding the ESLint configuration
+The following **optional** features are implemented:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- [x] Users can use a shuffle button to randomize the order of the cards
+  - Cards remain in the same sequence (NOT randomized) unless the shuffle button is clicked
+  - Cards change to a random sequence once the shuffle button is clicked
+- [x] A user's answer may be counted as correct even when it is slightly different from the target answer
+  - Answers are considered correct even if they differ in uppercase/lowercase
+  - Examples: ignoring uppercase/lowercase discrepancies so "argentina" matches "Argentina"
+- [ ] A counter displays the user's current and longest streak of correct responses
+- [ ] A user can mark a card that they have mastered and have it removed from the pool of displayed cards
+
+The following **additional** features are implemented:
+
+* The card shows which number you are on out of the total (e.g. "Card 3 of 10")
+* The input box turns green when correct and red when incorrect for extra visual clarity
+
+## Video Walkthrough
+
+Here's a walkthrough of implemented user stories:
+
+<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+GIF created with [Kap](https://getkap.co/)
+
+## Notes
+
+The main challenge was switching from random card navigation in Part 1 to sequential ordered navigation in Part 2 while keeping the shuffle feature working correctly. Making sure the back button was disabled on the first card and the next button was disabled on the last card required careful state management with the current index.
+
+## License
+
+    Copyright 2026 Nameera Afrose
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
