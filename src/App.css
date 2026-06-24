@@ -84,3 +84,56 @@ body {
   background-color: #aaa;
   cursor: not-allowed;
 }
+.guess-section {
+  display: flex;
+  gap: 10px;
+  margin: 16px 0;
+  justify-content: center;
+}
+
+.guess-section input {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 2px solid #ccc;
+  width: 260px;
+  outline: none;
+}
+
+.input-correct {
+  border-color: #4caf50 !important;
+  background-color: #f0fff0 !important;
+}
+
+.input-incorrect {
+  border-color: #f44336 !important;
+  background-color: #fff0f0 !important;
+}
+
+.submit-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  background-color: #003087;
+  color: white;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #001f5b;
+}
+
+.feedback {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 8px 0;
+}
+
+.feedback.correct {
+  color: #4caf50;
+}
+
+.feedback.incorrect {
+  color: #f44336;
+}
